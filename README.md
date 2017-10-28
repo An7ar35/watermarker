@@ -27,8 +27,8 @@ Script to batch add a SVG watermark to and/or resize JPG files.
 
     $ ./watermarker.sh -w my_watermark.svg -s 1080y -o ~/path_to_output/
     $ ./watermarker.sh -w my_watermark.svg -o ~/path_to_output/
-    $ ./watermarker.sh -w my_watermark.svg -a \"_watermarked\"
-    $ ./watermarker.sh -s 1080x -o -a \"_x1080\" ~/path_to_output/
+    $ ./watermarker.sh -w my_watermark.svg -a "_watermarked"
+    $ ./watermarker.sh -s 1080x -o -a "_x1080" ~/path_to_output/
     $ ./watermarker.sh -s 1080x1920
 
 ### Dependency
