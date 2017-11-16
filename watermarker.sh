@@ -108,6 +108,10 @@ if ! $output_flag && ! $append_flag; then
     exit 1
 fi
 
+if $output_flag; then
+    $output_flag += "/"
+fi
+
 images=(*.jpg *.JPG)
 counter=0
 
@@ -124,9 +128,9 @@ for i in ${images[@]}; do
         if $size_flag && ! $watermark_flag; then #resize only
             convert $i -resize $image_size $output_path/$modified_filename
         elif ! $size_flag && $watermark_flag; then #watermarking only
-            composite -compose Multiply -density 400 -dissolve 80% -gravity center -background none $watermark_file $i $output_path/$modified_filename
+            composite -compose Multiply -density 400 -dissolve 80% -gravity center -background none $watermark_file $i $output_path$modified_filename
         else #watermarking and resizing.
-            composite -compose Multiply -density 400 -dissolve 80% -resize $image_size -gravity center -background none $watermark_file $i $output_path/$modified_filename
+            composite -compose Multiply -density 400 -dissolve 80% -resize $image_size -gravity center -background none $watermark_file $i $output_path$modified_filename
         fi
         
         counter=$((counter+1))
